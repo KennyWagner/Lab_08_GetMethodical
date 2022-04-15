@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 import static com.company.SafeInput.getRangedInt;
 
-public class BirthDateTame
+public class BirthDateTIme
 {
     public static void main(String[] args)
     {

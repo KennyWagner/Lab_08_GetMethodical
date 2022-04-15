@@ -57,7 +57,7 @@ public class SafeInput
         boolean incorrect = true;
         do
         {
-            System.out.print("\n" +prompt + " [" + low + "-" + high + "]"); // show prompt add space
+            System.out.print("\n" +prompt + " [" + low + "-" + high + "] "); // show prompt add space
             pipe = new Scanner(System.in);
             if (pipe.hasNextInt())
             {
@@ -71,13 +71,13 @@ public class SafeInput
         return number;
     }
 
-    public static double getRangedDouble(Scanner pipe, String prompt, int low, int high)
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high)
     {
         double doubleNumber = 0;
         boolean incorrect = true;
         do
         {
-            System.out.print("\n" +prompt + "[" + low + "-" + high + "]"); // show prompt add space
+            System.out.print("\n" +prompt + "[" + low + "-" + high + "] "); // show prompt add space
             pipe = new Scanner(System.in);
             if (pipe.hasNextDouble())
             {
@@ -115,7 +115,7 @@ public class SafeInput
     public static String getRegExString(Scanner pipe, String prompt, String regEx)
     {
         boolean incorrect = true;
-        String tryString = "";  // Set this to zero length. Loop runs until it isn’t
+        String tryString = "";
         do
         {
             System.out.print("\n" +prompt + ": "); // show prompt add space
@@ -131,6 +131,55 @@ public class SafeInput
 
         }while (incorrect);
         return tryString;
+    }
+
+    public static void prettyHeader(String msg)
+    {
+        int msgLength = msg.length();
+        int spacing = ((52 - msgLength) / 2);
+
+        // printing message
+        if ((msgLength < 52))
+        {
+            //first line
+            for (int i = 0; i <= 60; i++)
+            {
+                System.out.print("*");
+            }
+            // second line
+            System.out.print("\n*** ");
+            for (int i = 0; i <= spacing; i++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print(msg);
+            if (spacing % 2 == 0)
+            {
+                for (int i = 0; i <= spacing; i++)
+                {
+                    System.out.print(" ");
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= spacing - 1; i++)
+                {
+                    System.out.print(" ");
+                }
+            }
+            System.out.print(" ***\n");
+            // third line
+            for (int i = 0; i <= 60; i++)
+            {
+                System.out.print("*");
+            }
+        }
+        else
+        {
+            System.out.println("Your message was too long for the header!!!");
+        }
+
+
     }
 
 }
